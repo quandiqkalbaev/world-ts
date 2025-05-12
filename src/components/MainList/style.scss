@@ -1,0 +1,38 @@
+.main {
+  &__list {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
+  }
+  &__card {
+    cursor: pointer;
+    background: rgb(37, 43, 50);
+    display: flex;
+    flex-direction: column;
+    &-img {
+      max-height: 20rem;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-info {
+      padding: 2rem;
+    }
+    &-country {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 130%;
+    }
+    &-population {
+      margin-top: 1rem;
+    }
+    &-region,
+    &-capital {
+      margin-top: 0.5rem;
+    }
+  }
+}
