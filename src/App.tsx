@@ -4,7 +4,7 @@ import Main from "./components/Main/Main";
 import { RootStoreContext } from "./contexts/root-store-context";
 import RootStore from "./stores/root-store";
 import "./style.scss";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import CountryPage from "./components/CountryPage/CountryPage";
 const store = new RootStore();
 function App() {

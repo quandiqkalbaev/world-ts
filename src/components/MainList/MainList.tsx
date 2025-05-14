@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { RootStoreContext } from "../../contexts/root-store-context";
 import { observer } from "mobx-react-lite";
 import "./style.scss";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 interface MainListProps {
   searchValue: string;
