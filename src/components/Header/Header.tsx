@@ -1,12 +1,25 @@
-import './style.scss'
+import { useEffect, useState } from "react";
+import "./style.scss";
 function Header() {
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  const HandleClick = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   return (
-    <header className='header'>
+    <header className="header">
       <div className="header__container _container">
-        <p>Light Mode</p>
+        <p className="theme" onClick={HandleClick}>
+          {theme} Mode
+        </p>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

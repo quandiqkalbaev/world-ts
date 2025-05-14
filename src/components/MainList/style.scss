@@ -7,7 +7,7 @@
   }
   &__card {
     cursor: pointer;
-    background: rgb(37, 43, 50);
+    background: var(--secondary-color);
     display: flex;
     flex-direction: column;
     &-img {

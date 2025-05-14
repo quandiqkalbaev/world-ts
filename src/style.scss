@@ -5,7 +5,17 @@
   @return math.div(100vw, $screen) * 10;
 }
 
+body.light {
+  --bg-color: #e8e8e8;
+  --secondary-color: #ffffff;
+  --text-color: rgb(7, 17, 27);
+}
 
+body.dark {
+  --bg-color: rgb(7, 17, 27); //rgb(7, 17, 27)
+  --secondary-color: rgb(37, 43, 50);
+  --text-color: #fff;
+}
 * {
   padding: 0px;
   margin: 0px;
@@ -112,8 +122,8 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:active,
 select:-webkit-autofill:focus {
-  color: #fff !important; // какого цвета должен быть текст
-  -webkit-text-fill-color: #fff !important; // какого цвета должен быть текст
+  color: var(--text-color) !important; // какого цвета должен быть текст
+  -webkit-text-fill-color: var(--text-color) !important; // какого цвета должен быть текст
   -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0) inset !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
@@ -125,12 +135,16 @@ select:-webkit-autofill:focus {
 
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  background: rgb(7, 17, 27);
-  color: white;
+  background: var(--bg-color);
+  color: var(--text-color);
   font-size: 2rem;
+transition: all 200ms linear;
 }
 ._container {
   max-width: 160rem;
   width: 100%;
   margin: 0 auto;
+}
+._loading {
+  margin-top: 5rem;
 }

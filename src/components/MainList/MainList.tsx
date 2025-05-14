@@ -6,23 +6,30 @@ import { Link } from "react-router";
 
 interface MainListProps {
   searchValue: string;
+  filterValue: string;
 }
-function MainList({ searchValue }: MainListProps) {
+function MainList({ searchValue, filterValue }: MainListProps) {
   const store = useContext(RootStoreContext);
   const data = store?.country.countries;
   const sorted = data?.slice().sort((a, b) => a.name.common.localeCompare(b.name.common));
-  const filtered = sorted?.filter((c) => c.name.common.toLocaleLowerCase().includes(searchValue.toLowerCase()));
+  const filtered = sorted?.filter((c) => {
+    const matchesSearch = c.name.common.toLowerCase().includes(searchValue.toLowerCase());
+    const matchesFilter = filterValue ? c.region === filterValue : true;
+    return matchesSearch && matchesFilter;
+  });
+  function formatNumber(number: number): string {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
   return (
     <ul className="main__list">
       {filtered?.map((country, i) => (
-        <Link to={`/${country.name.common}`} key={i} className="main__card">
+        <Link to={`/country/${country.cca3}`} key={i} className="main__card">
           <div className="main__card-img">
             <img src={country.flags.png} alt={country.flags.alt} />
           </div>
           <div className="main__card-info">
             <div className="main__card-country">{country.name.common}</div>
-
-            <div className="main__card-population">Population : {country.population}</div>
+            <div className="main__card-population">Population : {formatNumber(country.population)}</div>
             <div className="main__card-region">Region : {country.region}</div>
             <div className="main__card-capital">Capital : {country.capital}</div>
           </div>

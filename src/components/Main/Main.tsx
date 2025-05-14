@@ -6,15 +6,16 @@ import "./style.scss";
 
 function Main() {
   const [searchValue, setSearchValue] = useState("");
+  const [filterValue, setFilterValue] = useState(""); 
 
   return (
     <div className="main">
       <div className="main__conteinar _container">
         <div className="main__top">
           <Search value={searchValue} setValue={setSearchValue} />
-          <Filter />
+          <Filter value={filterValue} setValue={setFilterValue} />
         </div>
-        <MainList searchValue={searchValue} />
+        <MainList searchValue={searchValue} filterValue={filterValue} />
       </div>
     </div>
   );

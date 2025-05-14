@@ -17,7 +17,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/:id" element={<CountryPage />} />
+        <Route path="/country/:cca3" element={<CountryPage />} />
       </Routes>
     </RootStoreContext.Provider>
   );
